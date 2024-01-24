@@ -2,14 +2,23 @@
 
 @{
     ViewData["Title"] = "Edit";
+    Layout = "_AdminLayout";
 }
-
-<h1>Edit</h1>
-
-<h4>Service</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Tables</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+        <li class="breadcrumb-item">Products</li>
+        <li class="breadcrumb-item active">Edit Products</li>
+    </ol>
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center">Edit Product</h3>
+                    </div>
+                    <div class="card-body">
         <form asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ID" />
@@ -32,12 +41,12 @@
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
-        </form>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

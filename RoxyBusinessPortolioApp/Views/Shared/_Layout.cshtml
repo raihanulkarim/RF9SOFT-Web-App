@@ -1,53 +1,198 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="RF9Soft Portfolio">
+    <meta name="author" content="RF9Soft">
+    <link rel="shortcut icon" href="~/assets/custom/images/shortcut.png">
+
     <title>@ViewData["Title"] - RF9Soft</title>
+
+    <!-- animate.css-->
+    <link href="~/assets/vendor/animate.css-master/animate.min.css" rel="stylesheet">
+    <!-- Load Screen -->
+    <link href="~/assets/vendor/loadscreen/css/spinkit.css" rel="stylesheet">
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <!-- Font Awesome 5 -->
+    <link href="~/assets/vendor/fontawesome/css/fontawesome-all.min.css" rel="stylesheet">
+    <!-- Fables Icons -->
+    <link href="~/assets/custom/css/fables-icons.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/bootstrap/css/bootstrap-4-navbar.css" rel="stylesheet">
+    <!-- portfolio filter gallery -->
+    <link href="~/assets/vendor/portfolio-filter-gallery/portfolio-filter-gallery.css" rel="stylesheet">
+    <!-- Video Background -->
+    <link href="~/assets/vendor/video-background/video-background.css" rel="stylesheet">
+    <!-- FANCY BOX -->
+    <link href="~/assets/vendor/fancybox-master/jquery.fancybox.min.css" rel="stylesheet">
+    <!-- RANGE SLIDER -->
+    <link href="~/assets/vendor/range-slider/range-slider.css" rel="stylesheet">
+    <!-- OWL CAROUSEL  -->
+    <link href="~/assets/vendor/owlcarousel/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/owlcarousel/owl.theme.default.min.css" rel="stylesheet">
+    <!-- FABLES CUSTOM CSS FILE -->
+    <link href="~/assets/custom/css/custom.css" rel="stylesheet">
+    <!-- FABLES CUSTOM CSS RESPONSIVE FILE -->
+    <link href="~/assets/custom/css/custom-responsive.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/RoxyBusinessPortolioApp.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">RoxyBusinessPortolioApp</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Projects" asp-action="Index">Products</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Services" asp-action="Index">Services</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Portfolio" asp-action="Index">Portfolio</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+
+    <!-- Loading Screen -->
+    <div id="ju-loading-screen">
+        <div class="sk-double-bounce">
+            <div class="sk-child sk-double-bounce1"></div>
+            <div class="sk-child sk-double-bounce2"></div>
+        </div>
     </div>
 
-    <footer class="border-top footer text-muted">
+
+    <!-- Start Fables Navigation -->
+    <div class="fables-navigation fables-main-background-color py-3 py-lg-0">
         <div class="container">
-            &copy; 2024 - RoxyBusinessPortolioApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="row">
+                <div class="col-12 col-md-10 col-lg-9 pr-md-0">
+                    <nav class="navbar navbar-expand-md btco-hover-menu py-lg-2">
+
+                        <a class="navbar-brand pl-0" href="index.html"><img src="~/assets/custom/images/fables-logo.png" alt="Fables Template" class="fables-logo"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#fablesNavDropdown" aria-controls="fablesNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="fables-iconmenu-icon text-white font-16"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="fablesNavDropdown">
+
+                            <ul class="navbar-nav mx-auto fables-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-action="index" asp-controller="home" id="sub-nav1">
+                                        Home
+                                    </a>
+                                </li>
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" asp-action="about" asp-controller="Home" id="sub-nav3">
+                                        About Us
+                                    </a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" asp-action="products" asp-controller="Home" id="sub-nav4">
+                                        Products
+                                    </a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" asp-action="contact" asp-controller="Home" id="sub-nav7">
+                                        Contact Us
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </nav>
+                </div>
+                <div class="col-12 col-md-2 col-lg-3 pr-md-0 icons-header-mobile">
+
+                    <div class="fables-header-icons">
+
+                        <a href="signin.html" class="fables-third-text-color fables-second-hover-color font-13 top-header-link px-3 px-md-2 px-lg-4 max-line-height"><span class="fables-iconuser"></span></a>
+
+
+
+                    </div>
+                </div>
+            </div>
         </div>
-    </footer>
+    </div>
+    @RenderBody()
+
+    <!-- Start Footer 2 Background Image  -->
+    <div class="fables-footer-image fables-after-overlay white-color py-4 py-lg-5 bg-rules">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mt-2 mb-5 text-center">
+                    <h2 class="font-30 semi-font mb-5">Newsletter</h2>
+                    <form class="form-inline position-relative">
+                        <div class="form-group fables-subscribe-formgroup">
+                            <input type="email" class="form-control fables-subscribe-input fables-btn-rouned" placeholder="Your Email">
+                        </div>
+                        <button type="submit" class="btn fables-second-background-color fables-btn-rouned fables-subscribe-btn">Subscribe</button>
+                    </form>
+
+                </div>
+                <div class="col-12 col-lg-4 mb-4 mb-lg-0">
+                    <a href="#" class="fables-second-border-color border-bottom pb-3 d-block mb-3 mt-minus-13"><img src="assets/custom/images/fables-logo.png" alt="fables template"></a>
+                    <p class="font-15 fables-third-text-color">
+                        t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.
+                        <br><br>
+                        t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+                    </p>
+
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <h2 class="font-20 semi-font fables-second-border-color border-bottom pb-3">Contact us</h2>
+                    <div class="my-3">
+                        <h4 class="font-16 semi-font"><span class="fables-iconmap-icon fables-second-text-color pr-2 font-20 mt-1 d-inline-block"></span> Address Information</h4>
+                        <p class="font-14 fables-fifth-text-color mt-2 ml-4">level13, 2Elizabeth St, Melbourne, Victor 2000</p>
+                    </div>
+                    <div class="my-3">
+                        <h4 class="font-16 semi-font"><span class="fables-iconphone fables-second-text-color pr-2 font-20 mt-1 d-inline-block"></span> Call Now </h4>
+                        <p class="font-14 fables-fifth-text-color mt-2 ml-4">+333 111 111 000</p>
+                    </div>
+                    <div class="my-3">
+                        <h4 class="font-16 semi-font"><span class="fables-iconemail fables-second-text-color pr-2 font-20 mt-1 d-inline-block"></span> Mail </h4>
+                        <p class="font-14 fables-fifth-text-color mt-2 ml-4">adminsupport@website.com</p>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <h2 class="font-20 semi-font fables-second-border-color border-bottom pb-3 mb-3">EXPLORE OUR SITE</h2>
+                    <ul class="nav fables-footer-links">
+                        <li><a href="about1.html">About Us</a></li>
+                        <li><a href="contactus1.html">Contact Us</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="testimonials.html">Testimonials</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="copyright fables-main-background-color mt-0 border-0 white-color">
+        <ul class="nav fables-footer-social-links just-center fables-light-footer-links">
+            <li><a href="#" target="_blank"><i class="fab fa-google-plus-square"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-pinterest-square"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+        </ul>
+        <p class="mb-0">Copyright © Fables 2018. All rights reserved.</p>
+
+    </div>
+
+    <!-- /End Footer 2 Background Image -->
+
+
+    <script src="~/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <script src="~/assets/vendor/loadscreen/js/ju-loading-screen.js"></script>
+    <script src="~/assets/vendor/jquery-circle-progress/circle-progress.min.js"></script>
+    <script src="~/assets/vendor/popper/popper.min.js"></script>
+    <script src="~/assets/vendor/timeline/jquery.timelify.js"></script>
+    <script src="~/assets/vendor/WOW-master/dist/wow.min.js"></script>
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/assets/vendor/bootstrap/js/bootstrap-4-navbar.js"></script>
+    <script src="~/assets/vendor/owlcarousel/owl.carousel.min.js"></script>
+    <script src="~/assets/vendor/fancybox-master/jquery.fancybox.min.js"></script>
+    <script src="~/assets/vendor/video-background/jquery.mb.YTPlayer.js"></script>
+    <script src="~/assets/custom/js/custom.js"></script>
+
+    <!---->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

@@ -26,7 +26,7 @@ namespace RoxyBusinessPortolioApp.Controllers
         public async Task<IActionResult> Index()
         {
               return _context.ProjectModel != null ? 
-                          View(await _context.ProjectModel.ToListAsync()) :
+                          View(await _context.ProjectModel.OrderByDescending(r=> r.Id).ToListAsync()) :
                           Problem("Entity set 'ApplicationDbContext.ProjectModel'  is null.");
         }
 

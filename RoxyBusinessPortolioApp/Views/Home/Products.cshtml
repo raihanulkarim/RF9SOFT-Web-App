@@ -1,0 +1,82 @@
+﻿@model IEnumerable<RoxyBusinessPortolioApp.Models.ProjectModel>
+
+@{
+    ViewData["Title"] = "Products";
+}
+<div class="fables-header fables-after-overlay">
+    <div class="container">
+        <h2 class="fables-page-title fables-second-border-color">Explore Our Products</h2>
+         <p class="lead text-center">Discover essential solutions in our products section for business transformation.</p>
+
+    </div>
+</div>
+<!-- /End Header -->
+<!-- Start Breadcrumbs -->
+<div class="fables-light-gary-background">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="fables-breadcrumb breadcrumb px-0 py-3">
+                <li class="breadcrumb-item"><a href="#" class="fables-second-text-color">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Products</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<!-- /End Breadcrumbs -->
+<div class="container my-4">
+    <div class="row mt-3 mt-lg-5 mb-2">
+        <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+            <div class="text-center">
+                <h2 class="fables-main-text-color font-35 bold-font my-3">Latest Works</h2>
+                <p class="fables-forth-text-color my-4">
+                    Explore our diverse range of high-quality products designed to meet your needs and preferences. From cutting-edge technology to timeless classics, we have something for everyone. Browse through our collection below and discover the perfect match for you.
+
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-12 col-md-6 col-lg-4 mb-4 wow fadeIn" data-wow-delay=".2s">
+                <div class="card">
+                    <div class="image-container zoomOut-effect">
+                        <img src="~/Images/Projects/@product.Image" class="card-img-top" width="20px" height="300px" alt="@product.Title">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title font-18 semi-font mt-3 mb-2">@product.Title</h5>
+                        <p class="card-text fables-forth-text-color font-14 mb-3">@product.Description</p>
+                        <p class="card-text font-weight-bold">$ @product.Price</p>
+                        <p class="fables-product-info"><a href="@product.Link" class="btn fables-second-border-color fables-second-text-color fables-btn-rouned fables-hover-btn-color font-14 p-2 px-2 px-xl-4">
+                        <span class="fables-iconcart"></span>
+                        <span class="fables-btn-value">BUY NOW</span></a></p>                    
+                    </div>
+                </div>
+            </div>
+           @* <div class="col-12 col-sm-6 col-md-4 mb-4 mb-lg-5">
+                <div class="image-container zoomOut-effect">
+                    <a href="#"><img src="~/assets/custom/images/business-support.jpg" alt="image alt text" class="w-100"></a>
+                </div>
+                <h2 class="font-18 semi-font mt-3 mb-2"><a href="#" class="fables-main-text-color fables-second-hover-color">Getting to Another Level of Design</a></h2>
+                <div class="fables-forth-text-color font-14 mb-2">
+                    <span class="fables-icondata fables-second-text-color mr-1"></span>
+                    <span class="mr-3"> 09 November, 2018 </span>
+                    <span class="fables-iconcomment fables-second-text-color mr-1"></span>
+                    <a href="" class="fables-main-text-color fables-second-hover-color">2</a>
+                </div>
+                <p class="fables-forth-text-color font-14 mb-3">
+                    When you need your company to have a new  website or if you venture on updating your old webpage with a new look and functionality the choices are versatile Assuming that you will go the easy way .
+                </p>
+                <a href="" class="btn fables-main-text-color fables-second-hover-color font-14 p-0 underline">Read More</a>
+
+            </div>*@
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/wow.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+}

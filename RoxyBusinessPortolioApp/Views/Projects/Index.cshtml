@@ -2,66 +2,60 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "_AdminLayout";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Sales)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Link)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Image)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Sales)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Link)
-            </td>
-            <td>
-                    <div class="form-group">
-                        <img src="~/Images/Projects/@item.Image" alt="Current Image" class="img-fluid" />
-                    </div>
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Tables</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+        <li class="breadcrumb-item active">Products</li>
+    </ol>
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+            List of Products
+        </div>
+        <div class="card-body">
+            <table id="datatablesSimple">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Sales</th>
+                        <th>Price</th>
+                        <th>Link</th>
+                        <th>Img</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Sales</th>
+                        <th>Price</th>
+                        <th>Link</th>
+                        <th>Img</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                @foreach (var item in Model) {
+                    <tr>
+                        <td>@item.Title</td>
+                        <td>@item.Description</td>
+                        <td>@item.Sales</td>
+                        <td>@item.Price</td>
+                        <td><a href="@item.Link">@item.Link</a></td>
+                         <td><img src="~/Images/Projects/@item.Image" alt="Current Image" class="rounded" width="100px" height="100px" /></td>
+                            <td>
+                                <a asp-action="Edit" class="btn btn-sm btn-warning my-2" asp-route-id="@item.Id">Edit</a>
+                                <a asp-action="Delete" class="btn btn-sm btn-danger" asp-route-id="@item.Id">Delete</a>
+                            </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
